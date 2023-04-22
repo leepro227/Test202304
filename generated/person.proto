@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+import "person_info.proto";
+
+package tutorial;
+
+message Person {
+	optional string name = 1;
+	optional int32 id = 2;
+	optional string email = 3;
+
+	repeated PhoneNumber phones = 4;
+}
+
+message AddressBook {
+    repeated Person people = 1;
+}
+
