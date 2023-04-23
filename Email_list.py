@@ -32,21 +32,18 @@ if __name__ == "__main__":
     start = time.time()
     url_list = []
     new_list=[]
-    #假设5个虚拟线程做并发抓取任务
     for x in range(100):
         req_url='https://jsonplaceholder.typicode.com/posts/{}/comments'.format(x+1)
-        new_list.append(req_url)
-        if x!= 0 and (x+1)%5 == 0:
-            url_list.append(new_list)
-            new_list =[]
+        url_list.append(req_url)
+
+    # 虚拟线程做并发抓取任务
     max_connections = 5
     pool_sema = threading.BoundedSemaphore(max_connections)
     thread_list=[]
     for urls in url_list:
-        start_1 = time.time()
-        for item in urls:
-            a = myThread(item,item)
-            thread_list.append(a)
+        a = myThread(urls,urls)
+        thread_list.append(a)
+
     for a in thread_list:
         a.start()
 
