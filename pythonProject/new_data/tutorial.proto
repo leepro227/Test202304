@@ -1,7 +1,6 @@
-syntax = "proto2";
+syntax = "proto3";
 
-import "person_info.proto";
-
+import "tutorial_info.proto";
 package tutorial;
 
 message Person {
@@ -16,3 +15,6 @@ message AddressBook {
     repeated Person people = 1;
 }
 
+message MyMessage {
+  map<int32, int32> mapfield = 1;
+}

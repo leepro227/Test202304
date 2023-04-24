@@ -2,7 +2,8 @@ syntax = "proto3";
 
 package tutorial;
 
-enum PhoneType {
+
+    enum PhoneType {
 		MOBILE = 0;
 		HOME = 1;
 		WORK = 2;
